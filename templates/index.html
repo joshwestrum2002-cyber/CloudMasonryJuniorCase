@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Localhost Photo Viewer</title>
+    <title>Mars Rover Viewer</title>
+    <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-    <h1>Photo Viewer</h1>
 
-    <button id="loadPhotos">Load Photos</button>
+    <h1>Curiosity Rover API</h1>
 
-    <div id="photoContainer"></div>
+    <div class="search-form">
+        <label>Keyword</label>
+        <input type="text" id="keyword" placeholder="Keyword">
+
+        <label>Start Date</label>
+        <input type="date" id="startDate" placeholder="Start Date">
+
+        <label>End Date</label>
+        <input type="date" id="endDate" placeholder="End Date">
+
+        <button id="searchBtn">Search</button>
+    </div>
+
+    <p id="feedback">Search has not been clicked yet</p>
+
+    <div id="gallery"></div>
+    <h2>Test Photo</h2>
+    <img src="/static/CabPhoto.png" alt="Cab Photo" id="cabPhoto">
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <span id="closeModal">&times;</span>
+        <img id="modalImg">
+        
+    </div>
 
     <script src="/static/script.js"></script>
 </body>
