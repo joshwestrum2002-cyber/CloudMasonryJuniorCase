@@ -1,0 +1,52 @@
+AI Disclosure for CloudMasonry Junior Developer Assignment
+
+1. Summary of AI Involvement
+I used Microsoft Copilot as a support tool during the development of this project. AI assistance was used to accelerate research, 
+clarify API behavior, generate boilerplate code, and refine frontend and backend logic. All final code was reviewed, 
+understood, and modified by me to ensure correctness, maintainability, and alignment with the assignment’s acceptance criteria.
+
+AI did not make architectural decisions on my behalf, and I did not submit any code that I could not personally explain
+or justify.
+
+2. What AI Helped With
+    Research & Clarification
+        - Understanding the NASA Image and Video Library API structure
+        - Troubleshooting unexpected HTML responses from the NASA API
+
+    Code Generation (Reviewed & Modified by Me)
+        - Initial Flask backend scaffolding
+        - Modal logic for enlarged image viewing
+        - Error-handling patterns for API failures
+
+    Refinement & Debugging
+        - Improving error messages and empty-state handling
+        - Cleaning up code formatting
+
+3. What I Did Independently
+    - Selecting Flask + vanilla JS as the tech stack
+    - Structuring the project folder layout
+    - Writing the .env integration and environment loading
+    - Debugging API responses and validating correct endpoint usage
+    - Ensuring the UI behavior matched the sample UI in the assignment
+    - Reviewing, editing, and rewriting AI-generated code to ensure I fully understood it
+    - Testing the application end-to-end
+
+I also ensured that all logic in the final submission is something I can explain in detail during the defense interview.
+
+4. Rationale for Using AI
+I used AI the same way a junior developer might use StackOverflow, documentation, or pair programming:
+    - To speed up repetitive tasks
+    - To clarify API behavior
+    - To get unstuck when debugging
+    - To improve code readability and structure
+
+This allowed me to focus more time on understanding the problem, meeting the acceptance criteria, a
+nd ensuring the final product was functional and defensible.
+
+5. Final Statement
+I affirm that:
+    -  I understand all code included in this submission
+    - I can explain how each part works
+    - AI was used as a productivity tool, not as a replacement for my own reasoning
+    - The final implementation reflects my own understanding and decisions
+This disclosure is complete and accurate to the best of my ability.
