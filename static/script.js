@@ -5,14 +5,15 @@ document.getElementById("searchBtn").addEventListener("click", async () => {
     const endDate = document.getElementById("endDate").value;
     const feedback = document.getElementById("feedback");
     const gallery = document.getElementById("gallery");
-    const API_KEY = "uYWHDCVIBbSDcGEpAxz1L6EhuTsehCynz2Oe2y7s";
 
     // Show loading message and clear previous content
     feedback.textContent = "Loading...";
     gallery.innerHTML = "";
+    const yearStart = startDate.slice(0, 4);
+    const yearEnd = endDate.slice(0, 4);
 
     // Make the API request
-    const response = await fetch(`/search?api_key=${API_KEY}&keyword=${keyword}&start_date=${startDate}&end_date=${endDate}`);
+    const response = await fetch(`/search?q=${keyword}&media_type=image&yearStart=${yearStart}&yearEnd=${yearEnd}`);
     const data = await response.json();
 
     // Catch any errors
@@ -23,7 +24,7 @@ document.getElementById("searchBtn").addEventListener("click", async () => {
 
     // Check if any photos were found
     if (data.photos.length === 0) {
-        feedback.textContent = "No images found for that date/camera.";
+        feedback.textContent = "No images found for that date range.";
         return;
     }
 

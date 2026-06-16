@@ -19,28 +19,30 @@ def home():
 # Search for photos
 @app.route("/search")
 def search_photos():
-    keyword = request.args.get("keyword", "").strip()
-    startDate = request.args.get("start_date")
-    endDate = request.args.get("end_date")
+    keyword = request.args.get("q", "").strip()
+    startDate = request.args.get("yearStart")
+    endDate = request.args.get("yearEnd")
+    yearStart = startDate[:4] if startDate else None
+    yearEnd = endDate[:4] if endDate else None
 
     # Validate the inputs
     if not keyword or not startDate or not endDate:
         return jsonify({"error": "Keyword, Start Date, and End Date are required"}), 400
 
-    if startDate > endDate:
-        return jsonify({"error": "Start Date must be before End Date"}), 400
+    if not yearStart or not yearEnd:
+        return jsonify({"error": "Start Date and End Date are required"}), 400
 
     params = {
         "q": keyword,
-        "start_date": startDate,
-        "end_date": endDate,
+        "yearStart": yearStart,
+        "yearEnd": yearEnd,
         "media_type": "image",
         "api_key": NASA_API_KEY
     }
 
     # Get request to the NASA API
     try:
-        response = requests.get(NASA_IMAGE_ENDPOINT, params=params, timeout=10)
+        response = requests.get(NASA_IMAGE_ENDPOINT, params=params, timeout=20)
     except Exception as e:
         return jsonify({"error": f"Error occurred while fetching data: {str(e)}"}), 500
 
@@ -53,6 +55,7 @@ def search_photos():
     except:
         return jsonify({"error": "NASA returned invalid JSON"}), 502
 
+    
     # Extract the photos from the response
     items = data.get("collection", {}).get("items", [])
     photos = []
